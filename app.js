@@ -26,7 +26,15 @@ app.post("/", (req, res) => {
   let item = req.body.newitem;
   items.push(item)
 
-res.redirect("/")
+  res.redirect("/")
 
 })
+app.post("/delete", (req, res) => {
+  let item = req.body.deleteItem;
+  items.pop(item)
+
+  res.redirect("/")
+
+})
+
 app.listen(3000, () => console.log('server is re runnning on port 3000'))

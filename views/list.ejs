@@ -18,6 +18,10 @@
 
  <input type="checkbox">
     <p><%= nli[i] %></p>
+    <form class="item" action="/delete" method="post">
+      <input type="hidden" name="deleteItem" value="<%= nli[i] %>">
+      <button type="submit" name="button">-</button>
+    </form>
   </div>
     <%  }  %>
     <form class="item" action="/" method="post">
