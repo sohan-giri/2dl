@@ -8,26 +8,25 @@ app.use(bodyparser.urlencoded({
   extended: true
 }))
 app.use(express.static("public"))
-app.get("/", function(req, res) {
-  var today = new Date();
-  var options = {
+app.get("/", (req, res) => {
+  const today = new Date();
+  const options = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   };
 
-  let day = today.toLocaleDateString("en-US", options)
+  const day = today.toLocaleDateString("en-US", options)
+
   res.render("list", {
     k: day , nli: items});
 })
-app.post("/", function(req, res) {
+app.post("/", (req, res) => {
   let item = req.body.newitem;
   items.push(item)
 
 res.redirect("/")
 
 })
-app.listen(3000, function() {
-  console.log('server is re runnning on port 3000');
-})
+app.listen(3000, () => console.log('server is re runnning on port 3000'))
